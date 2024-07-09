@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+}
+
+html{
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background: rgb(253, 253, 253);
+ 
+}
+
+.links{
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Julius Sans One';
+    font-size: 20px;
+}
+
+h1{
+    font-family: 'Julius Sans One';
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+h4{
+    font-family:'Josefin Slab';
+    font-size: 20px; 
+}
+
+p{
+    font-family:'Josefin Slab';
+    font-size: 20px;
+}
+
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    font-family:'Josefin Slab';
+    font-size: 20px;
+}
+
+#abt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:justify;
+    background-color: rgba(232, 244, 252, 0.862);
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background: rgb(245, 245, 245);
+}
+
+#copy{
+    margin-left: 50px;
+}
+
+
+#name{
+    display: flex;
+    width: 550px;
+    height: 25px;
+    border-radius: 7px;
+    border-color: rgb(196, 198, 199);
+}
+
+#email{
+    display: flex;
+    width: 550px;
+    height: 25px;
+    border-radius: 7px;
+    border-color: rgb(196, 198, 199);
+}
+#message{
+    display: flex;
+    width: 550px;
+    border-radius: 7px;
+    border-color: rgb(196, 198, 199);
+}
+
+.submit{
+    height: 50px;
+    width: 100px;
+    font-family:'Josefin Slab';
+    font-size: 20px;
+    border-radius: 7px;
+    border-color: rgb(196, 198, 199);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+input[type = "submit"]:hover {
+    color: rgb(74, 150, 194);
+    background-color: rgba(212, 216, 219, 0.173);
+
+}

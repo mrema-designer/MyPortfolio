@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="email.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <title>Contact</title>
+</head>
+<body>
+    
+    <script src="email.js"></script>
+
+    <div class="header">
+        <a href="index.html"><img id="my-logo" src="favicon/android-chrome-192x192.png" alt="O meu logotipo horizontal pessoal"></a>
+        
+        <div class="navbar">
+            <a class="links" href="#about">ABOUT</a>
+            <a class="links" href="#education">EDUCATION</a>
+            <a class="links" href="#skills">SKILLS</a>
+            <div class="dropdown">
+                <button class="drop">PORTFOLIO
+                    <i class="what-i"></i>
+                </button>
+                <div class="drop-content">
+                    <a href="design.html">Design Gráfico</a>
+                    <a href="frontend.html">Frontend</a>
+                </div>   
+            </div>
+        </div>        
+    </div>
+
+    <div class="contact">
+        <h1>Contact Me</h1>
+        <div class="form">
+            <form id="contactForm" action="#" method="POST"> <!-- Formulário de contato -->
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+    
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+    
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4"></textarea><br><br>
+    
+                <input type="submit" class="submit" value="Submit"> 
+            </form>
+
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevenir o formulário de enviar normalmente
+                    
+                    var formData = new FormData(this); // Obter os dados do formulário
+                    var data = { // Preparar os dados para enviar por email
+                        service_id: 'portfolio', // ID do serviço de email
+                        template_id: 'portfolio', // ID do modelo de email
+                        user_id: 'aczszmjufe5T2IMtn', // ID do usuário
+                        template_params: { // Parâmetros do modelo de email
+                            'username': formData.get('name'), // Nome do remetente
+                            'email': formData.get('email'), // Email do remetente
+                            'message': formData.get('message') // Mensagem do remetente
+                        }
+                    };
+                    
+                    fetch('https://api.emailjs.com/api/v1.0/email/send', { // Enviar os dados para a API do EmailJS
+                        method: 'POST', // Método da requisição
+                        headers: {
+                            'Content-Type': 'application/json' // Tipo de conteúdo da requisição
+                        },
+                        body: JSON.stringify(data) // Converter os dados para JSON
+                    })
+                    .then(function(response) { // Lidar com a resposta da requisição
+                        if (response.ok) { // Se a resposta for bem-sucedida
+                            alert('Your mail is sent!'); // Alerta de sucesso
+                        } else {
+                            alert('Oops... ' + response.statusText); // Alerta de erro com a mensagem de erro da resposta
+                        }
+                    })
+                    .catch(function(error) { // Capturar erros de requisição
+                        alert('Oops... ' + error); // Alerta de erro com a mensagem de erro
+                    });
+                });
+            </script>
+
+        </div>
+    </div>
+
+</body>
+</html>
